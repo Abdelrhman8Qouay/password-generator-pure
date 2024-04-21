@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styling.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <title>Password Generator</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <main>
+            <div class="container st">
+                <div class="box">
+                    <h2>Password Generator</h2>
+                    <div class="row pass">
+                        <input type="text" name="password" maxlength="">
+                        <div class="floating">
+                            <button onclick="reGenerate()" title="re-generate password"><ion-icon name="repeat-outline"></ion-icon></button>
+                            <button onclick="copyPass()" title="copy"><ion-icon name="copy-outline"></ion-icon></button>
+                            <button onclick="hideShowPass()" title="hide/show password"><ion-icon name="eye-outline"></ion-icon></button>
+                        </div>
+                    </div>
+                    <div class="row ranger">
+                        <input type="range" name="rangePass" max="45"><div class="span"><span id="numpass">7</span> char</div>
+                    </div>
+                    <div class="row options">
+                        <div class="opt">
+                            <label for="strong">Strong</label>
+                            <input type="checkbox" name="number-check" id="strong">
+                        </div>
+                        <div class="opt">
+                            <label for="characters">Characters</label>
+                            <input type="checkbox" name="number-check" id="characters">
+                        </div>
+                        <div class="opt">
+                            <label for="numbers">Numbers</label>
+                            <input type="checkbox" name="number-check" id="numbers">
+                        </div>
+                        <div class="opt">
+                            <label for="sp_chars">Special Characters</label>
+                            <input type="checkbox" name="number-check" id="sp_chars">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

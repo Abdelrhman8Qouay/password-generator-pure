@@ -1,0 +1,125 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+*::selection {
+    background-color: aqua;
+    color: black;
+    font-weight: 600;
+}
+
+:root {
+    --main: aqua;
+    --hover-trans: 0.32s;
+}
+
+
+
+
+#app {
+    min-width: 100lvw;
+    min-height: 100lvh;
+    background: cadetblue;
+}
+
+.container {
+    max-width: 946px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.st {
+    width: 946px;
+}
+
+
+
+/* box */
+.box {
+    background: black;
+    padding: 15px;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: inherit;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.box h2 {
+    color: var(--main);
+    text-align: center;
+    font-weight: 500;
+}
+
+.row {
+    width: 100%;
+    height: max-content;
+    flex: 1;
+    gap: 10px;
+}
+
+
+/* the password row */
+.pass {
+    position: relative;
+}
+.pass input[name="password"] {
+    width: 100%;
+    outline: none;
+    border: none;
+    /* color: var(--main); */
+    padding: 5px 10% 5px 10px;
+    border-radius: 4px;
+    font-weight: 300;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.pass .floating {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.pass .floating button {
+    border: none;
+    padding: 5px;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/* ranger row */
+.ranger .span {
+    color: #fff;
+}
+
+
+/* options */
+.row.options {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.options .opt {
+    flex: 1 0 48%;
+    display: flex;
+    justify-content: space-between;
+}
+.row.options .opt label {
+    color: var(--main);
+    text-align: center;
+    font-weight: 500;
+}
+.row.options .opt label, .row.options .opt input {
+    cursor: pointer;
+    user-select: none;
+}

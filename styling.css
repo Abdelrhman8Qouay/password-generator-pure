@@ -16,46 +16,28 @@
     --hover-trans: 0.32s;
 }
 
-
-
-
 #app {
     min-width: 100lvw;
     min-height: 100lvh;
     background: cadetblue;
 }
 
+
+
+
+
 .container {
     max-width: 946px;
     margin-left: auto;
     margin-right: auto;
 }
+
 .st {
     width: 946px;
 }
 
-
-
-/* box */
-.box {
-    background: black;
-    padding: 15px;
-
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: inherit;
-
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.box h2 {
-    color: var(--main);
-    text-align: center;
-    font-weight: 500;
+.hidden {
+    display: none !important;
 }
 
 .row {
@@ -63,6 +45,38 @@
     height: max-content;
     flex: 1;
     gap: 10px;
+}
+
+
+.box {
+    padding: 15px;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: inherit;
+}
+.box h2 {
+    color: var(--main);
+    text-align: center;
+    font-weight: 500;
+}
+
+
+/* generator box */
+.gener {
+    background: black;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gener h2 {
+    color: var(--main);
+    text-align: center;
+    font-weight: 500;
 }
 
 
@@ -122,4 +136,41 @@
 .row.options .opt label, .row.options .opt input {
     cursor: pointer;
     user-select: none;
+}
+
+
+/* tester box */
+.tester_box {
+    background: blueviolet;
+    z-index: 10;
+}
+
+
+
+/* btns */
+
+#check_btn {
+    border: none;
+    padding: 5px;
+    background: greenyellow;
+    color: black;
+
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#back_btn {
+    border: none;
+    padding: 8px;
+    background: transparent;
+    transition: var(--hover-trans);
+    color: black;
+    font-size: larger;
+
+    cursor: pointer;
+    user-select: none;
+}
+#back_btn:hover {
+    background: rgba(255, 255, 255, 0.466);
 }

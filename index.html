@@ -12,27 +12,27 @@
     <div id="app">
         <main>
             <div class="container st">
-                <div class="box">
+                <div class="box gener hidden">
                     <h2>Password Generator</h2>
                     <div class="row pass">
-                        <input type="text" name="password" maxlength="">
+                        <input type="text" name="password" maxlength="7" autocomplete="off">
                         <div class="floating">
-                            <button onclick="reGenerate()" title="re-generate password"><ion-icon name="repeat-outline"></ion-icon></button>
+                            <button onclick="reGenerate()" title="re-generate password"><ion-icon name="refresh-outline"></ion-icon></button>
                             <button onclick="copyPass()" title="copy"><ion-icon name="copy-outline"></ion-icon></button>
                             <button onclick="hideShowPass()" title="hide/show password"><ion-icon name="eye-outline"></ion-icon></button>
                         </div>
                     </div>
                     <div class="row ranger">
-                        <input type="range" name="rangePass" max="45"><div class="span"><span id="numpass">7</span> char</div>
+                        <input type="range" name="rangePass" value="7" min="7" max="45"><div class="span"><span id="numpass">7</span> char</div>
                     </div>
                     <div class="row options">
                         <div class="opt">
-                            <label for="strong">Strong</label>
-                            <input type="checkbox" name="number-check" id="strong">
+                            <label for="sm_chars">Small Characters</label>
+                            <input type="checkbox" name="number-check" id="sm_chars">
                         </div>
                         <div class="opt">
-                            <label for="characters">Characters</label>
-                            <input type="checkbox" name="number-check" id="characters">
+                            <label for="cap_chars">Capital Characters</label>
+                            <input type="checkbox" name="number-check" id="cap_chars">
                         </div>
                         <div class="opt">
                             <label for="numbers">Numbers</label>
@@ -42,7 +42,50 @@
                             <label for="sp_chars">Special Characters</label>
                             <input type="checkbox" name="number-check" id="sp_chars">
                         </div>
+                        <div class="opt">
+                            <label for="strong">Strong</label>
+                            <input type="checkbox" name="number-check" id="strong">
+                        </div>
+                        <div class="opt">
+                            <label for="space_char">Space Character (Allowed)</label>
+                            <input type="checkbox" name="number-check" id="space_char">
+                        </div>
                     </div>
+
+
+                    <button id="check_btn">check password</button>
+                </div>
+
+
+                <div class="box tester_box">
+                    <button id="back_btn"><ion-icon name="arrow-back-outline"></ion-icon></button>
+                    <h2>Password Tester</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STATUS</th>
+                                <th>PASSWORD</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <tr>
+                                    <td><ion-icon name="lock-closed-outline"></ion-icon></td>
+                                    <td><input type="text" value="mardjfd265454sd" class="pass_review" readonly></td>
+                                    <td>
+                                        <button title="copy" class="copy_review"><ion-icon name="copy-outline"></ion-icon></button>
+                                        <button title="hide/show password" class="hideShow_review"><ion-icon name="eye-outline"></ion-icon></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><ion-icon name="alert-circle-outline"></ion-icon></td>
+                                    <td><input type="text" value="mard264sd" class="pass_review" readonly></td>
+                                    <td>
+                                        <button title="copy" class="copy_review"><ion-icon name="copy-outline"></ion-icon></button>
+                                        <button title="hide/show password" class="hideShow_review"><ion-icon name="eye-outline"></ion-icon></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                    </table>
                 </div>
             </div>
         </main>

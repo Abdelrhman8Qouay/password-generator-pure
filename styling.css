@@ -3,23 +3,43 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: system-ui, sans-serif;
 }
 *::selection {
-    background-color: aqua;
+    background-color: var(--prim);
     color: black;
     font-weight: 600;
 }
 
 :root {
-    --main: aqua;
+    --main: #000;
+    --second: #fff;
+
+    --main2: rgba(0, 0, 0, 0.6);
+    --main3: rgba(0, 0, 0, 0.3);
+    --main4: rgba(0, 0, 0, 0.15);
+
+    /* static */
+    --prim: #00c57d;
     --hover-trans: 0.32s;
+    --font-size1: large;
+    --font-size2: larger;
+}
+.nightMode {
+    --main: #fff;
+    --second: #000;
+
+
+    --main2: rgba(255, 255, 255, 0.6);
+    --main3: rgba(255, 255, 255, 0.3);
+    --main4: rgba(255, 255, 255, 0.15);
 }
 
 #app {
     min-width: 100lvw;
     min-height: 100lvh;
-    background: cadetblue;
+    /* background: rgb(32, 248, 255); */
+    background: #00c57d;
 }
 
 
@@ -49,111 +69,316 @@
 
 
 .box {
-    padding: 15px;
+    padding: 15px 25px;
 
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: inherit;
+
+    /* box-shadow: 0 0 6px black; */
+    box-shadow: 0 0 20px 3px #000;
 }
-.box h2 {
+
+.box .head {
+    display: flex;
+    justify-content: space-between;
+}
+.box .head h2 {
     color: var(--main);
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
 }
 
 
-/* generator box */
+/* ========================= generator box ========================= */
 .gener {
-    background: black;
+    background: var(--second);
 
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    transition: var(--hover-trans) ease-out;
+    visibility: visible;
+    opacity: 1;
+}
+.gener.hide {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(50px,-50%) !important;
 }
 
 .gener h2 {
     color: var(--main);
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
 }
 
 
 /* the password row */
-.pass {
+.pass_box {
     position: relative;
 }
-.pass input[name="password"] {
+.pass_box input[name="password"] {
     width: 100%;
     outline: none;
     border: none;
-    /* color: var(--main); */
-    padding: 5px 10% 5px 10px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
+    color: var(--main);
+    background: var(--second);
+    padding: 10px 10% 10px 15px;
+    font-size: medium;
     font-weight: 300;
     font-family: 'Courier New', Courier, monospace;
+
+    border-top: 1px solid var(--main3) ;
+    border-left: 1px solid var(--main2);
+    border-right: 1px solid var(--main2);
+    border-bottom: 1px solid var(--main);
+}
+.pass_box input[name="password"]::placeholder {
+    color: var(--main2);
+    font-weight: 500;
 }
 
-.pass .floating {
+.pass_box .floating {
     position: absolute;
     right: 2px;
     top: 50%;
     transform: translateY(-50%);
 }
-.pass .floating button {
+.pass_box .floating button {
     border: none;
     padding: 5px;
+    color: var(--main);
+    font-size: var(--font-size1);
     background: transparent;
     cursor: pointer;
     user-select: none;
 }
 
 
+
 /* ranger row */
-.ranger .span {
-    color: #fff;
+.gener section {
+    border-top: 1px solid var(--main);
+    border-left: 1px solid var(--main2);
+    border-right: 1px solid var(--main2);
+    border-bottom: 1px solid var(--main3);
+    padding: 20px;
+
+    display: flex;
+}
+.gener h3 {
+    color: var(--main);
+    text-align: start;
+    font-weight: 300;
 }
 
+
+
+/* ranger col */
+.gener .ranger {
+
+}
+
+.gener .ranger .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #eee;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.gener .ranger .slider:hover {
+    opacity: 1;
+    background: #ccc;
+}
+.gener .ranger .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--prim);
+    cursor: pointer;
+}
+.gener .ranger .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--prim);
+    cursor: pointer;
+}
+
+.ranger .span {
+    color: var(--main);
+    text-align: start;
+    font-weight: 300;
+}
 
 /* options */
 .row.options {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .row.options .opt {
     flex: 1 0 48%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10px;
 }
-.row.options .opt label {
-    color: var(--main);
-    text-align: center;
-    font-weight: 500;
-}
-.row.options .opt label, .row.options .opt input {
+
+.row.options .opt .contain {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
     cursor: pointer;
+    color: var(--main);
+    font-size: var(--font-size1);
+    font-weight: 200;
+    font-style: italic;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+  }
+  /* Hide the browser's default checkbox */
+  .row.options .opt  .contain input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .row.options .opt .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  /* On mouse-over, add a grey background color */
+  .row.options .opt .contain:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .row.options .opt .contain input:checked ~ .checkmark {
+    background-color: var(--prim);
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .row.options .opt .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .row.options .opt .contain input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .row.options .opt .contain .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+/* ========================= tester box ========================= */
+.tester_box {
+    background: var(--second);
+    z-index: 10;
+
+    transition: var(--hover-trans) ease-out;
+    visibility: visible;
+    opacity: 1;
+}
+.tester_box.hide {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-50px,-50%) !important;
 }
 
+.tester_box table {
+    width: 100%;
 
-/* tester box */
-.tester_box {
-    background: blueviolet;
-    z-index: 10;
+    border-top: 1px solid var(--main);
+    border-left: 1px solid var(--main2);
+    border-right: 1px solid var(--main2);
+    border-bottom: 1px solid var(--main3);
+    padding: 20px;
+}
+
+.tester_box table tr th {
+    color: var(--main);
+    font: message-box;
+    text-align: center;
+}
+.tester_box table tr td {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 10px auto;
+}
+
+.tester_box table tr td .pass_review {
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--main);
+    padding: 5px 10% 5px 10px;
+    border-radius: 4px;
+    font-weight: 300;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
 
 /* btns */
 
+.mode {
+    border: none;
+    padding: 6px;
+    background: transparent;
+    transition: var(--hover-trans);
+    color: var(--main);
+    font-size: var(--font-size2);
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: all 0.6s ease-in-out;
+}
+.mode.right {transform: rotate(360deg);}
+.mode.left {transform: rotate(-360deg);}
+
 #check_btn {
     border: none;
-    padding: 5px;
-    background: greenyellow;
-    color: black;
+    padding: 6px;
+    background: var(--prim);
+    color: var(--main);
+    font-size: var(--font-size2);
+    font-weight: 300;
 
     border-radius: 6px;
     cursor: pointer;
@@ -162,15 +387,15 @@
 
 #back_btn {
     border: none;
-    padding: 8px;
+    padding: 6px;
     background: transparent;
     transition: var(--hover-trans);
-    color: black;
-    font-size: larger;
+    color: var(--main);
+    font-size: var(--font-size2);
 
     cursor: pointer;
     user-select: none;
 }
 #back_btn:hover {
-    background: rgba(255, 255, 255, 0.466);
+    background: var(--main4);
 }

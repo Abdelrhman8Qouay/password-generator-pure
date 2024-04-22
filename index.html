@@ -10,56 +10,85 @@
 </head>
 <body>
     <div id="app">
+
         <main>
             <div class="container st">
-                <div class="box gener hidden">
-                    <h2>Password Generator</h2>
-                    <div class="row pass">
-                        <input type="text" name="password" maxlength="7" autocomplete="off">
+                <div class="box gener">
+                    <div class="head">
+                        <h2>> Password Generator</h2>
+                        <button class="mode"><ion-icon name="sunny-outline"></ion-icon></button>
+                    </div>
+                    <div class="row pass_box">
+                        <input type="text" name="password" id="password" maxlength="7" autocomplete="off" placeholder="Empty password...">
                         <div class="floating">
-                            <button onclick="reGenerate()" title="re-generate password"><ion-icon name="refresh-outline"></ion-icon></button>
-                            <button onclick="copyPass()" title="copy"><ion-icon name="copy-outline"></ion-icon></button>
-                            <button onclick="hideShowPass()" title="hide/show password"><ion-icon name="eye-outline"></ion-icon></button>
+                            <button onclick="re_generate()" title="re-generate password"><ion-icon name="refresh-outline"></ion-icon></button>
+                            <button onclick="copy_pass()" title="copy"><ion-icon name="copy-outline"></ion-icon></button>
+                            <button onclick="hide_show_pass()" title="hide/show password"><ion-icon name="eye-outline"></ion-icon></button>
                         </div>
                     </div>
-                    <div class="row ranger">
-                        <input type="range" name="rangePass" value="7" min="7" max="45"><div class="span"><span id="numpass">7</span> char</div>
-                    </div>
-                    <div class="row options">
-                        <div class="opt">
-                            <label for="sm_chars">Small Characters</label>
-                            <input type="checkbox" name="number-check" id="sm_chars">
+                    <hr style="margin: 20px 0;">
+
+                    <h3>Customize your password</h3>
+                    <section>
+                        <div class="row options">
+                            <div class="opt">
+                                <label class="contain" for="sm_chars">Small Letters
+                                    <input type="checkbox" name="number-check" id="sm_chars" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="opt">
+                                <label class="contain" for="cap_chars">Capital Letters
+                                    <input type="checkbox" name="number-check" id="cap_chars">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="opt">
+                                <label class="contain" for="digits_check">Digits
+                                    <input type="checkbox" name="number-check" id="digits_check" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="opt">
+                                <label class="contain" for="symbols_check">Symbols
+                                    <input type="checkbox" name="number-check" id="symbols_check" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="opt">
+                                <label class="contain" for="space_char">Space Character (Allowed)
+                                    <input type="checkbox" name="number-check" id="space_char">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <hr style="margin: 10px 0;">
+                            <div class="opt">
+                                <label class="contain" for="strong">Make it strong
+                                    <input type="checkbox" name="number-check" id="strong">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="opt">
-                            <label for="cap_chars">Capital Characters</label>
-                            <input type="checkbox" name="number-check" id="cap_chars">
+                        <div class="row ranger">
+                            <input type="range" name="rangePass" class="slider" value="7" min="7" max="45">
+                            <div class="span"><span id="numpass">7</span> Password Length</div>
                         </div>
-                        <div class="opt">
-                            <label for="numbers">Numbers</label>
-                            <input type="checkbox" name="number-check" id="numbers">
-                        </div>
-                        <div class="opt">
-                            <label for="sp_chars">Special Characters</label>
-                            <input type="checkbox" name="number-check" id="sp_chars">
-                        </div>
-                        <div class="opt">
-                            <label for="strong">Strong</label>
-                            <input type="checkbox" name="number-check" id="strong">
-                        </div>
-                        <div class="opt">
-                            <label for="space_char">Space Character (Allowed)</label>
-                            <input type="checkbox" name="number-check" id="space_char">
-                        </div>
-                    </div>
+                    </section>
 
 
                     <button id="check_btn">check password</button>
                 </div>
 
 
-                <div class="box tester_box">
-                    <button id="back_btn"><ion-icon name="arrow-back-outline"></ion-icon></button>
-                    <h2>Password Tester</h2>
+                <div class="box tester_box hide">
+                    <div class="head">
+                        <h2>> Password Checker [testing...]</h2>
+                        <div class="nested">
+                            <button id="back_btn"><ion-icon name="arrow-back-outline"></ion-icon></button>
+                            <button class="mode"><ion-icon name="sunny-outline"></ion-icon></button>
+                        </div>
+                    </div>
+                    <hr style="margin: 20px 0;">
                     <table>
                         <thead>
                             <tr>

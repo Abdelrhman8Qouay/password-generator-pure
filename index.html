@@ -22,8 +22,11 @@
                         <input type="text" name="password" id="password" maxlength="7" autocomplete="off" placeholder="Empty password...">
                         <div class="floating">
                             <button onclick="re_generate()" title="re-generate password"><ion-icon name="refresh-outline"></ion-icon></button>
-                            <button onclick="copy_pass()" title="copy"><ion-icon name="copy-outline"></ion-icon></button>
-                            <button onclick="hide_show_pass()" title="hide/show password"><ion-icon name="eye-outline"></ion-icon></button>
+                            <div class="pop">
+                                <button id="copyBtn" title="copy"><ion-icon name="copy-outline"></ion-icon></button>
+                                <span class="pop_text">copied</span>
+                            </div>
+                            <button id="hideShowBtn" title="hide/show password"><ion-icon name="eye-outline"></ion-icon></button>
                         </div>
                     </div>
                     <hr style="margin: 20px 0;">
@@ -105,7 +108,7 @@
                             </tr>
                         </thead>
                             <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td><ion-icon name="lock-closed-outline"></ion-icon> Secure</td>
                                     <td><span>3/5</span></td>
                                     <td><span>7</span></td>
@@ -124,12 +127,14 @@
                                         <button title="copy" class="copy_review"><ion-icon name="copy-outline"></ion-icon></button>
                                         <button title="hide/show password" class="hideShow_review"><ion-icon name="eye-outline"></ion-icon></button>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                     </table>
                 </div>
             </div>
         </main>
+
+        <div class="owner">Made from 🎇<a href="https://github.com/Abdelrhman8Qouay">Abdelrhman Ashraf</a>🎇</div>
     </div>
 </body>
 </html>

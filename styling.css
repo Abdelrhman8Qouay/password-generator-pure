@@ -44,6 +44,17 @@
 
 
 
+.owner {
+    position: fixed;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    color: white;
+
+    font-size: 22px;
+    font-weight: 300;
+}
+.owner a {color: white;}
 
 
 .container {
@@ -89,6 +100,37 @@
     color: var(--main);
     text-align: center;
     font-weight: 300;
+}
+
+
+.pop {
+    position: relative;
+    display: inline-block;
+}
+.pop .pop_text {
+    background-color: #7c7c7c;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 1px 7px 3px 7px;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    left: 140%;
+    margin-left: -60px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+}
+.pop.show .pop_text {
+    visibility: visible;
+    opacity: 1;
+}
+.pop.show:hover .pop_text {
+    visibility: hidden;
+    opacity: 0;
 }
 
 
@@ -419,4 +461,73 @@
 }
 #back_btn:hover {
     background: var(--main4);
+}
+
+
+
+
+
+
+
+/* Media Work */
+
+@media (max-width: 924px) {
+
+    :root {
+        --font-size1: medium;
+        --font-size2: large;
+    }
+
+    .st {
+        width: auto;
+    }
+
+    body .box {
+        position: unset;
+        top: unset;
+        left: unset;
+        transform: unset;
+    }
+
+
+    /* --------------- generator box --------------- */
+    body .gener.hide {
+        display: none;
+    }
+
+    body .tester_box.hide {
+        display: none;
+    }
+
+    /* slider */
+    body .gener .ranger .slider {
+        width: 50%;
+        height: 10px;
+    }
+
+    body .gener section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    body .row.options {
+        order: 1;
+    }
+
+    body .row.options .opt .checkmark {
+        height: 17px;
+        width: 17px;
+    }
+    body .row.options .opt .contain .checkmark:after {
+        left: 6px;
+        top: 3px;
+        width: 2px;
+        height: 8px;
+    }
+
+
+
+    body .owner {
+        font-size: 18px;
+    }
 }

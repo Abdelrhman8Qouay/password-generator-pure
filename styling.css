@@ -303,6 +303,8 @@
   }
 
 
+
+
 /* ========================= tester box ========================= */
 .tester_box {
     background: var(--second);
@@ -328,16 +330,22 @@
     padding: 20px;
 }
 
+
 .tester_box table tr th {
     color: var(--main);
-    font: message-box;
-    text-align: center;
+    font-size: var(--font-size2);
+    font-weight: 300;
+    text-transform:uppercase;
+
+    padding: 5px 10% 5px 10px;
+    text-align: start;
+    border-right: 1px solid var(--main3);
 }
 .tester_box table tr td {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     margin: 10px auto 10px auto;
+    font-size: var(--font-size2);
+    color: var(--main);
+    border-top: 1px solid var(--main4);
 }
 
 .tester_box table tr td .pass_review {
@@ -348,14 +356,27 @@
     color: var(--main);
     padding: 5px 10% 5px 10px;
     border-radius: 4px;
+    font-size: var(--font-size1);
     font-weight: 300;
     font-family: 'Courier New', Courier, monospace;
 }
 
+.tester_box table tr td button {
+    border: none;
+    padding: 5px;
+    color: var(--main);
+    font-size: var(--font-size1);
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+
 
 
 /* btns */
-
 .mode {
     border: none;
     padding: 6px;

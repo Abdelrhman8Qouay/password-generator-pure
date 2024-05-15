@@ -26,7 +26,7 @@ class PassClass {
 
     // Generate and Shuffle Function v1.4 {use algorithm similar to the Fisher-Yates shuffle}
     // str >> string text to shuffle it | reqLen >> required length should generate on it | ... >> check the options one by one when generate
-    static generate_shuffle(reqLen, checkSmall= true, checkCap= true, checkSpace= true, checkDigits= true, checkSymbols= true, checkRep=true) {
+    static generate_shuffle(reqLen, checkSmall= true, checkCap= true, checkSpace= true, checkDigits= true, checkSymbols= true, checkRep=true, checkSort= true) {
         if(!reqLen) return reqLen;
 
         let str = '', form= '';
@@ -67,7 +67,9 @@ class PassClass {
             res[randToShuffle] = oldChar;
 
         }
-        return res.join('');
+
+        // if the (sort) option is work make the result is sorted else >>>
+        return checkSort ? res.sort().join('') : res.join('');
     }
 
 
@@ -157,6 +159,11 @@ class PassUI {
         re_generate();
     }
 
+    static sorted_checker() {
+        re_generate();
+        pass.value =  pass.value.split('').sort().join('');
+    }
+
     static click_check() {
         if(!pass.value) return;
 
@@ -195,6 +202,7 @@ capitalCheck = document.getElementById('cap_chars'),
 digitsCheck = document.getElementById('digits_check'),
 spaceCheck = document.getElementById('space_char'),
 repCheck = document.getElementById('repeated'),
+sortCheck = document.getElementById('sorted'),
 
 checkBtn = document.getElementById('check_btn'),
 backBtn = document.getElementById('back_btn'),
@@ -217,6 +225,8 @@ rangePass.onchange = ()=> PassUI.ranging_pass();
 
 // when make strong check is (make it strong) method
 strongCheck.onchange = ()=> PassUI.strong_checker();
+
+sortCheck.onchange = ()=> PassUI.sorted_checker();
 
 // to navigate between the boxes [generate box | tester box]
 checkBtn.onclick = () => PassUI.click_check();
@@ -260,5 +270,5 @@ function copy_pass(popEle) {
 }
 
 function re_generate () {
-    pass.value = PassClass.generate_shuffle(PassClass.password_length, smallCheck.checked, capitalCheck.checked, spaceCheck.checked, digitsCheck.checked, symbolsCheck.checked, repCheck.checked);
+    pass.value = PassClass.generate_shuffle(PassClass.password_length, smallCheck.checked, capitalCheck.checked, spaceCheck.checked, digitsCheck.checked, symbolsCheck.checked, repCheck.checked, sortCheck.checked);
 }
